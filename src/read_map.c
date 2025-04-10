@@ -6,7 +6,7 @@
 /*   By: tiagovr4 <tiagovr4@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/10 17:50:57 by tiagovr4          #+#    #+#             */
-/*   Updated: 2025/04/10 18:58:46 by tiagovr4         ###   ########.fr       */
+/*   Updated: 2025/04/10 20:06:37 by tiagovr4         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void	free_map(char **map, int lines)
 	int	i;
 	
 	i = 0;
-	while (lines >= i)
+	while (i <= lines)
 	{
 		free(map[i]);
 		i++;
@@ -43,6 +43,7 @@ void	free_map(char **map, int lines)
 	free(map);
 }
 
+// This function initializes the map and opens the file descriptor
 static char	**init_map(const char *filename, int *lines, int *fd)
 {
 	char	**map;
