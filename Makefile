@@ -6,7 +6,7 @@
 #    By: tiagovr4 <tiagovr4@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/09 15:52:15 by tiagovr4          #+#    #+#              #
-#    Updated: 2025/04/10 16:56:15 by tiagovr4         ###   ########.fr        #
+#    Updated: 2025/04/11 01:03:26 by tiagovr4         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,7 +30,8 @@ MINILIBX_PATH = minilibx-linux
 MINILIBX_ARC = $(MINILIBX_PATH)/libmlx.a
 
 # source files
-SRCS = 
+SRCS = src/read_map.c \
+	   so_long.c \
 
 # object files
 OBJS = $(SRCS:.c=.o)
@@ -38,7 +39,7 @@ OBJS = $(SRCS:.c=.o)
 # compiler and flags
 CC = cc
 CFLAGS = -Wall -Wextra -Werror -g
-LIBS = -lmlx -lX11 -lXext -lm
+LIBS = -L$(MINILIBX_PATH) -lmlx -lX11 -lXext -lm
 
 # Main rule - build libft.a after dependencies are met
 all: deps $(NAME)
@@ -109,3 +110,5 @@ re: fclean all
 	@echo "[$(CYN)Rebuilding$(D)]"
 	@$(MAKE) all
 	@echo "[$(GRN)Rebuild complete!$(D)]"
+
+.PHONY: all clean fclean re

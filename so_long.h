@@ -6,14 +6,14 @@
 /*   By: tiagovr4 <tiagovr4@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/09 18:20:10 by tiagovr4          #+#    #+#             */
-/*   Updated: 2025/04/10 18:59:06 by tiagovr4         ###   ########.fr       */
+/*   Updated: 2025/04/11 00:57:52 by tiagovr4         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
-# include <mlx.h>
+# include "minilibx-linux/mlx.h"
 # include <string.h>
 # include <fcntl.h>
 # include "libft/libft.h"
@@ -32,5 +32,9 @@ typedef struct	s_game
 
 //functions
 char	**read_map(const char *filename);
+
+void	free_map(char **map, int lines);
+
+int	main (int ac, char **av);
 
 #endif
