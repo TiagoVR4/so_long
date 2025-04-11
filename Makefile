@@ -6,7 +6,7 @@
 #    By: tiagovr4 <tiagovr4@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/09 15:52:15 by tiagovr4          #+#    #+#              #
-#    Updated: 2025/04/11 01:03:26 by tiagovr4         ###   ########.fr        #
+#    Updated: 2025/04/11 15:58:50 by tiagovr4         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,8 +38,8 @@ OBJS = $(SRCS:.c=.o)
 
 # compiler and flags
 CC = cc
-CFLAGS = -Wall -Wextra -Werror -g
-LIBS = -L$(MINILIBX_PATH) -lmlx -lX11 -lXext -lm
+CFLAGS = -Wall -Wextra -Werror -g -I$(LIBFT_PATH) -I$(MINILIBX_PATH)
+LIBS = -L$(MINILIBX_PATH) -lmlx -lX11 -lXext -lm -lbsd
 
 # Main rule - build libft.a after dependencies are met
 all: deps $(NAME)
@@ -71,7 +71,7 @@ get_minilibx:
 # Create the main library archive
 $(NAME): $(OBJS) $(LIBFT_ARC) $(MINILIBX_ARC)
 	@echo "[$(CYN)Compiling$(D)] $(NAME)"
-	@$(CC) $(CFLAGS) -o $(NAME) $(OBJS) $(LIBFT_ARC) $(MINILIBX_ARC) $(LIBS)
+	@$(CC) $(CFLAGS) -o $(NAME) $(OBJS) -L$(LIBFT_PATH) -lft -L$(LIBFT_PATH)/ft_printf -lftprintf $(LIBS)
 	@echo "[$(GRN)Done!$(D)]"
 
 # Generic rule for compiling .c to .o

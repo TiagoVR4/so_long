@@ -6,7 +6,7 @@
 /*   By: tiagovr4 <tiagovr4@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/09 18:58:51 by tiagovr4          #+#    #+#             */
-/*   Updated: 2025/04/11 00:58:32 by tiagovr4         ###   ########.fr       */
+/*   Updated: 2025/04/11 17:29:33 by tiagovr4         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	main (int ac, char **av)
 
 	if(ac != 2)
 	{
-		ft_printf("Ërror: Please insert ""file"".ber\n");
+		ft_printf("Error: Please insert ""file"".ber\n");
 		return (1);
 	}
 	map = read_map(av[1]);
@@ -32,9 +32,10 @@ int	main (int ac, char **av)
 	i = 0;
 	while (map[i])
 	{
-		ft_printf("%s\n", map[i]);
+		ft_printf("%s", map[i]);
 		i++;
 	}
+	ft_printf("\n");
 	free_map(map, i);
 	return (0);
 }
