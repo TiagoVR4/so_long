@@ -35,7 +35,7 @@ void	free_map(char **map, int lines)
 	int	i;
 	
 	i = 0;
-	while (i <= lines)
+	while (i < lines)
 	{
 		free(map[i]);
 		i++;
