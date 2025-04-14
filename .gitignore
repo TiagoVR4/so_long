@@ -53,4 +53,4 @@ dkms.conf
 
 # Ignored folders
 libft/
-minilibx/
+minilibx-linux/
