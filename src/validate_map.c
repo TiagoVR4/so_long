@@ -6,7 +6,7 @@
 /*   By: tiagovr4 <tiagovr4@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/15 11:57:02 by tiagovr4          #+#    #+#             */
-/*   Updated: 2025/04/15 13:51:18 by tiagovr4         ###   ########.fr       */
+/*   Updated: 2025/04/15 15:19:41 by tiagovr4         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,14 +108,14 @@ int	validate_map(char **map)
 		ft_putstr_fd("Error: Map's size is invalid'.\n", 2);
 		return (0);
 	}
-if (!valid_borders(map))
+	if (!valid_borders(map))
 	{
 		ft_putstr_fd("Error: Map's borders are invalid.\n", 2);
 		return (0);
 	}
 	if (!required_elements(map))
 	{
-		ft_putstr_fd("Error: Map does not contain required elements.\n", 2);
+		ft_putstr_fd("Error: Map doesn't contain required elements.\n", 2);
 		return (0);
 	}
 	return (1);
