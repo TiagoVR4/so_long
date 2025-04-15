@@ -6,7 +6,7 @@
 /*   By: tiagovr4 <tiagovr4@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/09 18:20:10 by tiagovr4          #+#    #+#             */
-/*   Updated: 2025/04/15 11:55:46 by tiagovr4         ###   ########.fr       */
+/*   Updated: 2025/04/15 16:19:23 by tiagovr4         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,23 @@
 
 typedef struct	s_game 
 {
-	void	*mlx;		// pointer for minilibx
-	void	*win;		// pointer for window
-	void	**map;		// map in array
-	int		player_x;	// player's x position
-	int		player_y;	// player's y position
-	int		coins;		// collectibles counter
-	int		moves;		//move counter
+	void	*mlx;				// pointer for minilibx
+	void	*win;				// pointer for window
+	char	**map;				// map in array
+	int		map_width;			// map width
+	int		map_height;
+	int		player_x;			// player's x position
+	int		player_y;			// player's y position
+	int		exit_x;
+	int		exit_y;
+	int		collectibles;		// collectibles counter
+	int		collected;			// collectibles collected
+	int		moves;				// move counter
+	void	*img_player;		// player sprite
+	void	*img_wall;			// wall sprite
+	void	*img_floor;			// floor sprite
+	void	*img_collect;		// collectible sprite
+	void	*img_exit;			// exit sprite
 } 				t_game;
 
 //functions

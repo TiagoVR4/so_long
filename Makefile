@@ -6,7 +6,7 @@
 #    By: tiagovr4 <tiagovr4@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/09 15:52:15 by tiagovr4          #+#    #+#              #
-#    Updated: 2025/04/15 11:55:27 by tiagovr4         ###   ########.fr        #
+#    Updated: 2025/04/15 22:38:09 by tiagovr4         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,6 +32,7 @@ MINILIBX_ARC = $(MINILIBX_PATH)/libmlx.a
 # source files
 SRCS = src/read_map.c \
 	   src/validate_map.c \
+	   src/init_game.c \
 	   so_long.c \
 	
 # object files
