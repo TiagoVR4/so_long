@@ -6,7 +6,7 @@
 /*   By: tiagovr4 <tiagovr4@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/10 17:50:57 by tiagovr4          #+#    #+#             */
-/*   Updated: 2025/04/11 00:55:41 by tiagovr4         ###   ########.fr       */
+/*   Updated: 2025/04/15 11:53:36 by tiagovr4         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ int	count_lines(const char *filename)
 	close(fd);
 	return (lines);
 }
+
 void	free_map(char **map, int lines)
 {
 	int	i;

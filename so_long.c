@@ -6,7 +6,7 @@
 /*   By: tiagovr4 <tiagovr4@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/09 18:58:51 by tiagovr4          #+#    #+#             */
-/*   Updated: 2025/04/11 17:29:33 by tiagovr4         ###   ########.fr       */
+/*   Updated: 2025/04/15 11:56:28 by tiagovr4         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,11 @@ int	main (int ac, char **av)
 	map = read_map(av[1]);
 	if (!map)
 	{
-		ft_printf("Error: Map is invalid\n");
+		ft_printf("Error: Can't read the map\n");
 		return (1);
 	}
+	if (!validate_map(map))
+		return (1);
 	i = 0;
 	while (map[i])
 	{

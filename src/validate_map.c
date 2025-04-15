@@ -1,4 +1,16 @@
-#include "so_long.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   validate_map.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tiagovr4 <tiagovr4@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/04/15 11:57:02 by tiagovr4          #+#    #+#             */
+/*   Updated: 2025/04/15 13:51:18 by tiagovr4         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "../so_long.h"
 
 static int  is_rectangular(char **map)
 {
@@ -7,11 +19,11 @@ static int  is_rectangular(char **map)
 
 	if (!map || !map[0])
 		return (0);
-	len = ft_strlen(map[0]); // Get the length of the first line
-	i = 1; // Start from the second line
+	len = ft_strlen(map[0]); 			// Get the length of the first line
+	i = 1;								// Start from the second line
 	while (map[i])
 	{
-		if (ft_strlen(map[i]) != len) // Compare the length of each line
+		if ((int)ft_strlen(map[i]) != len)	 // Compare the length of each line
 			return (0);
 		i++;
 	}
@@ -26,7 +38,7 @@ static int check_border_walls(char **map, int width, int height)
 	i = 0;
 	while (i < width)
 	{
-		if (map[0][i] != '1' || map[height - 1][i] != '1') 
+		if (map[0][i] != '1' || map[height - 1][i] != '1')
 			return (0);
 		i++;
 	}
@@ -51,7 +63,7 @@ static int valid_borders(char **map)
 		height++;
 	if (height < 3)
 		return (0);
-	width = ft_strlen(map[0]);
+	width = ft_strlen(map[0]) - 1;
 	if (width < 3)
 		return (0);
 	if (!check_border_walls(map, width, height))
@@ -96,7 +108,7 @@ int	validate_map(char **map)
 		ft_putstr_fd("Error: Map's size is invalid'.\n", 2);
 		return (0);
 	}
-	if (!valid_borders(map))
+if (!valid_borders(map))
 	{
 		ft_putstr_fd("Error: Map's borders are invalid.\n", 2);
 		return (0);
