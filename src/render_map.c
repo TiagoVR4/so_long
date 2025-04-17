@@ -6,7 +6,7 @@
 /*   By: tiagovr4 <tiagovr4@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/16 13:45:42 by tiagovr4          #+#    #+#             */
-/*   Updated: 2025/04/16 14:05:04 by tiagovr4         ###   ########.fr       */
+/*   Updated: 2025/04/17 18:28:32 by tiagovr4         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 // This function renders a single tile on the map
 static void	render_tiles(t_game *game, int x, int y)
 {
-	mlx_put_image_to_window(game->mlx, game->win, game->img_floor, x * 64, y & 64); // Always draw the floor first
+	mlx_put_image_to_window(game->mlx, game->win, game->img_floor, x * 64, y & 64);		// Always render the floor first
 	if (game->map[x][y] == '1')
 		mlx_put_image_to_window(game->mlx, game->win, game->img_wall, x * 64, y * 64);
 	else if (game->map[x][y] == 'C')
@@ -24,6 +24,17 @@ static void	render_tiles(t_game *game, int x, int y)
 		mlx_put_image_to_window(game->mlx, game->win, game->img_exit, x * 64, y * 64);
 	else if (game->map[x][y] == 'P')
 		mlx_put_image_to_window(game->mlx, game->win, game->img_player, x * 64, y * 64);
+}
+
+// This function closes the window and frees the resources
+int	handle_close(t_game *game)
+{
+	mlx_destroy_window(game->mlx, game->win);
+	mlx_destroy_display(game->mlx);
+	free(game->mlx);
+	free_map(game->map, game->map_height);
+	exit(0);
+	return (0);
 }
 
 // This function renders the entire map
@@ -40,7 +51,7 @@ void	render_map(t_game *game)
 		x = 0;
 		while (x < game->map_width)
 		{
-			render_tile(game, x, y);
+			render_tiles(game, x, y);
 			x++;
 		}
 		y++;

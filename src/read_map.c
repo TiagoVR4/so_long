@@ -6,7 +6,7 @@
 /*   By: tiagovr4 <tiagovr4@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/10 17:50:57 by tiagovr4          #+#    #+#             */
-/*   Updated: 2025/04/15 11:53:36 by tiagovr4         ###   ########.fr       */
+/*   Updated: 2025/04/17 20:20:37 by tiagovr4         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,12 +31,14 @@ int	count_lines(const char *filename)
 	return (lines);
 }
 
-void	free_map(char **map, int lines)
+void	free_map(char **map)
 {
 	int	i;
 	
 	i = 0;
-	while (i < lines)
+	if (!map)
+		return ;
+	while (map[i])
 	{
 		free(map[i]);
 		i++;
@@ -80,7 +82,7 @@ char	**read_map(const char *filename)
 		map[i] = get_next_line(fd);
 		if (!map[i])
 		{
-			free_map(map, i);
+			free_map(map);
 			close(fd);
 			return (NULL);
 		}
