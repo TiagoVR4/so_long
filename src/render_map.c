@@ -6,7 +6,7 @@
 /*   By: tiagovr4 <tiagovr4@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/16 13:45:42 by tiagovr4          #+#    #+#             */
-/*   Updated: 2025/04/17 18:28:32 by tiagovr4         ###   ########.fr       */
+/*   Updated: 2025/04/22 14:52:51 by tiagovr4         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 // This function renders a single tile on the map
 static void	render_tiles(t_game *game, int x, int y)
 {
-	mlx_put_image_to_window(game->mlx, game->win, game->img_floor, x * 64, y & 64);		// Always render the floor first
+	mlx_put_image_to_window(game->mlx, game->win, game->img_floor, x * 64, y * 64);		// Always render the floor first
 	if (game->map[x][y] == '1')
 		mlx_put_image_to_window(game->mlx, game->win, game->img_wall, x * 64, y * 64);
 	else if (game->map[x][y] == 'C')
@@ -32,7 +32,7 @@ int	handle_close(t_game *game)
 	mlx_destroy_window(game->mlx, game->win);
 	mlx_destroy_display(game->mlx);
 	free(game->mlx);
-	free_map(game->map, game->map_height);
+	free_map(game->map);
 	exit(0);
 	return (0);
 }
