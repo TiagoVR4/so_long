@@ -6,7 +6,7 @@
 /*   By: tiagovr4 <tiagovr4@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/09 18:20:10 by tiagovr4          #+#    #+#             */
-/*   Updated: 2025/04/24 17:10:58 by tiagovr4         ###   ########.fr       */
+/*   Updated: 2025/04/24 18:12:09 by tiagovr4         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ typedef struct	s_game
 	void	*win;				// pointer for window
 	char	**map;				// map in array
 	int		map_width;			// map width
-	int		map_height;
+	int		map_height;			// map height
 	int		player_x;			// player's x position
 	int		player_y;			// player's y position
 	int		exit_x;
