@@ -6,7 +6,7 @@
 /*   By: tiagovr4 <tiagovr4@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/15 16:20:34 by tiagovr4          #+#    #+#             */
-/*   Updated: 2025/04/15 22:37:18 by tiagovr4         ###   ########.fr       */
+/*   Updated: 2025/04/24 18:45:22 by tiagovr4         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,12 +45,12 @@ static void	find_map_elements(t_game *game)
 	int	i;
 	int	j;
 
-	count_map_dimensions(game);	
+	count_map_dimensions(game);
 	i = 0;
 	while (i < game->map_height)
 	{
 		j = 0;
-		while (j < game->map_width)					 // Check each character in the map
+		while (j < game->map_width)					// Check each character in the map
 		{
 			if (game->map[i][j] == 'C')				// Collectible
 				game->collectibles++;
@@ -76,7 +76,7 @@ int	init_game(t_game *game, char **map)
 	game->mlx = mlx_init();									// Initialize the mlx(graphics library)
 	if(!game->mlx)
 		return (0);
-	game->win = mlx_new_window(game->mlx, game->map_width * 64, game->map_height * 64, "So Long");	 // Create a new window
+	game->win = mlx_new_window(game->mlx, game->map_width * 32, game->map_height * 32, "So Long");		// Create a new window
 	if(!game->win)
 	{
 		mlx_destroy_display(game->mlx);						// Destroy the display
@@ -87,3 +87,5 @@ int	init_game(t_game *game, char **map)
 		return (0);
 	return (1);
 }
+
+
