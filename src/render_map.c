@@ -6,7 +6,7 @@
 /*   By: tiagovr4 <tiagovr4@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/16 13:45:42 by tiagovr4          #+#    #+#             */
-/*   Updated: 2025/04/22 14:52:51 by tiagovr4         ###   ########.fr       */
+/*   Updated: 2025/04/24 17:33:40 by tiagovr4         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,19 +16,29 @@
 static void	render_tiles(t_game *game, int x, int y)
 {
 	mlx_put_image_to_window(game->mlx, game->win, game->img_floor, x * 64, y * 64);		// Always render the floor first
-	if (game->map[x][y] == '1')
+	if (game->map[y][x] == '1')
 		mlx_put_image_to_window(game->mlx, game->win, game->img_wall, x * 64, y * 64);
-	else if (game->map[x][y] == 'C')
+	else if (game->map[y][x] == 'C')
 		mlx_put_image_to_window(game->mlx, game->win, game->img_collect, x * 64, y * 64);
-	else if (game->map[x][y] == 'E')
+	else if (game->map[y][x] == 'E')
 		mlx_put_image_to_window(game->mlx, game->win, game->img_exit, x * 64, y * 64);
-	else if (game->map[x][y] == 'P')
+	else if (game->map[y][x] == 'P')
 		mlx_put_image_to_window(game->mlx, game->win, game->img_player, x * 64, y * 64);
 }
 
 // This function closes the window and frees the resources
 int	handle_close(t_game *game)
 {
+	if (game->img_player)
+		mlx_destroy_image(game->mlx, game->img_player);
+	if (game->img_wall)
+		mlx_destroy_image(game->mlx, game->img_wall);
+	if (game->img_floor)
+		mlx_destroy_image(game->mlx, game->img_floor);
+	if (game->img_collect)
+		mlx_destroy_image(game->mlx, game->img_collect);
+	if (game->img_exit)
+		mlx_destroy_image(game->mlx, game->img_exit);
 	mlx_destroy_window(game->mlx, game->win);
 	mlx_destroy_display(game->mlx);
 	free(game->mlx);
