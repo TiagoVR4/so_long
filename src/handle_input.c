@@ -6,14 +6,14 @@
 /*   By: tiagovr4 <tiagovr4@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/23 14:37:33 by tiagovr4          #+#    #+#             */
-/*   Updated: 2025/04/23 15:47:07 by tiagovr4         ###   ########.fr       */
+/*   Updated: 2025/04/24 17:11:38 by tiagovr4         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
 
 // This function checks if the game is complete
-static int is_game_complete(t_game *game, int x, int y)
+static int	is_game_complete(t_game *game, int x, int y)
 {
 	if (game->map[y][x] == 'E' && game->collected == game->collectibles)
 	{
@@ -28,7 +28,7 @@ static int	move_player(t_game *game, int new_x, int new_y)
 {
 	if (game->map[new_y][new_x] == '1')		// Check if the next tile is a wall
 		return (0);
-	id_game_complete(game, new_x, new_y);	// Check if the game is complete
+	is_game_complete(game, new_x, new_y);	// Check if the game is complete
 	if (game->map[new_y][new_x] == 'C')
 		game->collected++;
 	game->map[game->player_y][game->player_x] = '0';	// Clear the old position
