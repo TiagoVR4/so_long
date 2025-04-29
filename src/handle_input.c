@@ -6,7 +6,7 @@
 /*   By: tiagovr4 <tiagovr4@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/23 14:37:33 by tiagovr4          #+#    #+#             */
-/*   Updated: 2025/04/24 18:12:33 by tiagovr4         ###   ########.fr       */
+/*   Updated: 2025/04/29 12:02:33 by tiagovr4         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,10 @@ static int	move_player(t_game *game, int new_x, int new_y)
 	is_game_complete(game, new_x, new_y);	// Check if the game is complete
 	if (game->map[new_y][new_x] == 'C')
 		game->collected++;
-	game->map[game->player_y][game->player_x] = '0';	// Clear the old position
+	if (game->player_x == game->exit_x && game->player_y == game->exit_y)
+		game->map[game->player_y][game->player_x] = 'E';					// Set the exit position
+	else
+		game->map[game->player_y][game->player_x] = '1';					// Set the previous position to a wall
 	game->map[new_y][new_x] = 'P';						// Set the new position
 	game->player_x = new_x;								// Update the player's x position
 	game->player_y = new_y;								// Update the player's y position

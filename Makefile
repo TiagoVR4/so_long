@@ -6,7 +6,7 @@
 #    By: tiagovr4 <tiagovr4@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/09 15:52:15 by tiagovr4          #+#    #+#              #
-#    Updated: 2025/04/23 15:46:41 by tiagovr4         ###   ########.fr        #
+#    Updated: 2025/04/29 12:25:55 by tiagovr4         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,6 +35,7 @@ SRCS = src/read_map.c \
 	   src/render_map.c \
 	   src/init_game.c \
 	   src/handle_input.c \
+	   src/validate_path.c \
 	   so_long.c \
 	
 # object files
