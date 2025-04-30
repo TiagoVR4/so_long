@@ -6,7 +6,7 @@
 /*   By: tiagovr4 <tiagovr4@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/09 18:20:10 by tiagovr4          #+#    #+#             */
-/*   Updated: 2025/04/24 18:12:09 by tiagovr4         ###   ########.fr       */
+/*   Updated: 2025/04/29 12:25:41 by tiagovr4         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,12 @@ typedef struct	s_game
 	void	*img_exit;			// exit sprite
 } 				t_game;
 
+typedef struct s_valid
+{
+	int	collectibles_found;
+	int	exit_found;
+}	t_valid;
+
 //functions
 char	**read_map(const char *filename);
 
@@ -52,5 +58,6 @@ int	main (int ac, char **av);
 int	init_game(t_game *game, char **map);
 int	handle_close(t_game *game);
 int	handle_input(int keycode, t_game *game);
+int	validate_path(char **map, t_game *game);
 
 #endif
