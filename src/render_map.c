@@ -6,7 +6,7 @@
 /*   By: tiagovr4 <tiagovr4@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/16 13:45:42 by tiagovr4          #+#    #+#             */
-/*   Updated: 2025/04/29 17:40:38 by tiagovr4         ###   ########.fr       */
+/*   Updated: 2025/05/05 20:26:58 by tiagovr4         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,8 @@ int	handle_close(t_game *game)
 		mlx_destroy_image(game->mlx, game->img_collect);
 	if (game->img_exit)
 		mlx_destroy_image(game->mlx, game->img_exit);
+	if (game->original_map)
+		free_map(game->original_map);
 	mlx_destroy_window(game->mlx, game->win);
 	mlx_destroy_display(game->mlx);
 	free(game->mlx);

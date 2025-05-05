@@ -6,7 +6,7 @@
 /*   By: tiagovr4 <tiagovr4@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/23 14:37:33 by tiagovr4          #+#    #+#             */
-/*   Updated: 2025/04/29 12:02:33 by tiagovr4         ###   ########.fr       */
+/*   Updated: 2025/05/05 20:26:55 by tiagovr4         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,33 @@ static int	move_player(t_game *game, int new_x, int new_y)
 	return (1);
 }
 
+static void	reset_game(t_game *game)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	while (i < game->map_height)
+	{
+		j = 0;
+		while (j < game->map_width)
+		{
+			game->map[i][j] = game->original_map[i][j];
+			if (game->original_map[i][j] == 'P')
+			{
+				game->player_y = i;
+				game->player_x = j;
+			}
+			j++;
+		}
+		i++;
+	}
+	game->moves = 0;
+	game->collected = 0;
+	render_map(game);
+	ft_printf("Game reset!\n");
+}
+
 // This function handles the input from the user
 int	handle_input(int keycode, t_game *game)
 {
@@ -55,6 +82,11 @@ int	handle_input(int keycode, t_game *game)
 		return (move_player(game, game->player_x, game->player_y + 1));
 	else if (keycode == 100 || keycode == 65363)						// 'd' or right arrow
 		return (move_player(game, game->player_x + 1, game->player_y));
+	else if (keycode == 114)											// 'r' to restart the game
+	{
+		reset_game(game);
+		return(1);
+	}
 	else if (keycode == 65307)											// 'esc'
 		handle_close(game);
 	return (0);
