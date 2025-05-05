@@ -6,7 +6,7 @@
 /*   By: tiagovr4 <tiagovr4@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/15 16:20:34 by tiagovr4          #+#    #+#             */
-/*   Updated: 2025/05/05 20:26:57 by tiagovr4         ###   ########.fr       */
+/*   Updated: 2025/05/05 20:34:14 by tiagovr4         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,8 +77,8 @@ int	init_game(t_game *game, char **map)
 	int	img_height;
 
 	game->map = map;
-	game->original_map = copy_map(map, game->map_height);
 	find_map_elements(game);
+	game->original_map = copy_map(map, game->map_height);
 	game->mlx = mlx_init();									// Initialize the mlx(graphics library)
 	if(!game->mlx)
 		return (0);
