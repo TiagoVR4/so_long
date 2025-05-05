@@ -6,7 +6,7 @@
 /*   By: tiagovr4 <tiagovr4@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/15 16:20:34 by tiagovr4          #+#    #+#             */
-/*   Updated: 2025/04/29 17:40:32 by tiagovr4         ###   ########.fr       */
+/*   Updated: 2025/05/05 17:39:45 by tiagovr4         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,8 @@ int	init_game(t_game *game, char **map)
 	int	img_height;
 
 	game->map = map;
-	find_map_elements(game); 
+	game->original_map = copy_map(map, game->map_height);
+	find_map_elements(game);
 	game->mlx = mlx_init();									// Initialize the mlx(graphics library)
 	if(!game->mlx)
 		return (0);
@@ -88,7 +89,7 @@ int	init_game(t_game *game, char **map)
 		free(game->mlx);
 		return (0);
 	}
-	if (!load_images(game, &img_width, &img_height))		// **dont forget to check** Load the images
+	if (!load_images(game, &img_width, &img_height))
 		return (0);
 	return (1);
 }

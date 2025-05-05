@@ -6,13 +6,13 @@
 /*   By: tiagovr4 <tiagovr4@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/29 12:16:50 by tiagovr4          #+#    #+#             */
-/*   Updated: 2025/04/29 12:46:37 by tiagovr4         ###   ########.fr       */
+/*   Updated: 2025/05/05 17:38:19 by tiagovr4         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
 
-static char	**copy_map(char **map, int height)
+char	**copy_map(char **map, int height)
 {
 	char	**map_copy;
 	int		i;

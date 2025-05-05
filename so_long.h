@@ -6,7 +6,7 @@
 /*   By: tiagovr4 <tiagovr4@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/09 18:20:10 by tiagovr4          #+#    #+#             */
-/*   Updated: 2025/05/05 17:34:03 by tiagovr4         ###   ########.fr       */
+/*   Updated: 2025/05/05 17:38:35 by tiagovr4         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ typedef struct s_valid
 
 //functions
 char	**read_map(const char *filename);
+char	**copy_map(char **map, int height);
 
 void	free_map(char **map);
 void	render_map(t_game *game);
@@ -60,5 +61,6 @@ int	init_game(t_game *game, char **map);
 int	handle_close(t_game *game);
 int	handle_input(int keycode, t_game *game);
 int	validate_path(char **map, t_game *game);
+
 
 #endif
