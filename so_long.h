@@ -6,7 +6,7 @@
 /*   By: tiagovr4 <tiagovr4@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/09 18:20:10 by tiagovr4          #+#    #+#             */
-/*   Updated: 2025/04/29 12:25:41 by tiagovr4         ###   ########.fr       */
+/*   Updated: 2025/05/05 17:34:03 by tiagovr4         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ typedef struct	s_game
 	void	*mlx;				// pointer for minilibx
 	void	*win;				// pointer for window
 	char	**map;				// map in array
+	char	**original_map;		// store the original map if the player wants restart
 	int		map_width;			// map width
 	int		map_height;			// map height
 	int		player_x;			// player's x position
