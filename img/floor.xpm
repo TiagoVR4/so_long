@@ -3,9 +3,9 @@ static const char *floor[] = {
 /* columns rows colors chars-per-pixel */
 "64 64 5 1 ",
 "  c #231C19",
-". c #14462D",
-"X c #0A7030",
-"o c #03991F",
+". c #997D57",
+"X c #C3AA83",
+"o c #E2CFA4",
 "O c None",
 /* pixels */
 "OOOOOOOO                                                OOOOOOOO",
