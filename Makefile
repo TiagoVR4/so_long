@@ -6,7 +6,7 @@
 #    By: tiagovr4 <tiagovr4@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/09 15:52:15 by tiagovr4          #+#    #+#              #
-#    Updated: 2025/04/29 12:25:55 by tiagovr4         ###   ########.fr        #
+#    Updated: 2025/05/06 17:07:37 by tiagovr4         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -57,9 +57,11 @@ deps: get_libft get_minilibx
 get_libft:
 	@if [ -d "$(LIBFT_PATH)" ]; then \
 		echo "[$(GRN)libft$(D)] folder found 🖔"; \
+		$(MAKE) -C $(LIBFT_PATH) deps; \
 	else \
 		echo "Getting $(YLW)libft$(D)"; \
 		git clone git@github.com:TiagoVR4/libft.git; \
+		$(MAKE) -C $(LIBFT_PATH) deps; \
 		echo "$(GRN)Done downloading libft$(D)"; \
 	fi
 
