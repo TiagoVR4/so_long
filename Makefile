@@ -6,7 +6,7 @@
 #    By: tiagovr4 <tiagovr4@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/09 15:52:15 by tiagovr4          #+#    #+#              #
-#    Updated: 2025/05/06 17:07:37 by tiagovr4         ###   ########.fr        #
+#    Updated: 2025/05/06 17:24:32 by tiagovr4         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -109,7 +109,6 @@ fclean: clean
 	@echo "[$(CYN)Cleaning$(D)]"
 	@rm -f $(NAME)
 	@$(MAKE) -C $(LIBFT_PATH) fclean
-	@$(MAKE) -C $(MINILIBX_PATH) fclean
 	@echo "[$(GRN)Cleaned!$(D)]"
 
 # Rebuild everything from scratch
