@@ -6,7 +6,7 @@
 /*   By: tiagovr4 <tiagovr4@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/09 18:20:10 by tiagovr4          #+#    #+#             */
-/*   Updated: 2025/05/05 17:38:35 by tiagovr4         ###   ########.fr       */
+/*   Updated: 2025/05/06 16:14:44 by tiagovr4         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,6 @@
 # include <string.h>
 # include <fcntl.h>
 # include "libft/libft.h"
-# include "libft/ft_printf/ft_printf.h"
-# include "libft/get_next_line/get_next_line.h"
 
 typedef struct	s_game 
 {
