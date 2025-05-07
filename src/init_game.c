@@ -6,7 +6,7 @@
 /*   By: tiagovr4 <tiagovr4@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/15 16:20:34 by tiagovr4          #+#    #+#             */
-/*   Updated: 2025/05/05 20:34:14 by tiagovr4         ###   ########.fr       */
+/*   Updated: 2025/05/07 19:50:51 by tiagovr4         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,8 +49,8 @@ static void	find_map_elements(t_game *game)
 	i = 0;
 	while (i < game->map_height)
 	{
-		j = 0;
-		while (j < game->map_width)					// Check each character in the map
+		j = -1;
+		while (++j < game->map_width)					// Check each character in the map
 		{
 			if (game->map[i][j] == 'C')				// Collectible
 				game->collectibles++;
@@ -64,7 +64,6 @@ static void	find_map_elements(t_game *game)
 				game->exit_y = i;
 				game->exit_x = j;
 			}
-			j++;
 		}
 		i++;
 	}
