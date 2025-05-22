@@ -6,7 +6,7 @@
 /*   By: tiagovr4 <tiagovr4@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/15 11:57:02 by tiagovr4          #+#    #+#             */
-/*   Updated: 2025/05/22 12:22:44 by tiagovr4         ###   ########.fr       */
+/*   Updated: 2025/05/22 12:57:26 by tiagovr4         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,8 +86,8 @@ static int	required_elements(char **map)
 	i = 0;
 	while (map[i])
 	{
-		j = -1; 
-		while (map[i][++j])		// need to pre-increment j because of norminette
+		j = -1;
+		while (map[i][++j])		// need to pre-increment j because of norminette -.-
 		{
 			if (map[i][j] == 'P')
 				player++;
@@ -111,6 +111,11 @@ int	validate_map(char **map)
 	if (!valid_borders(map))
 	{
 		ft_putstr_fd("Error: Map's borders are invalid.\n", 2);
+		return (0);
+	}
+	if (!valid_char(map))
+	{
+		ft_putstr_fd("Error: Map contain invalid characters.\n", 2);
 		return (0);
 	}
 	if (!required_elements(map))

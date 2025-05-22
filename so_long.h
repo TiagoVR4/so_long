@@ -6,7 +6,7 @@
 /*   By: tiagovr4 <tiagovr4@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/09 18:20:10 by tiagovr4          #+#    #+#             */
-/*   Updated: 2025/05/06 17:11:19 by tiagovr4         ###   ########.fr       */
+/*   Updated: 2025/05/22 12:54:05 by tiagovr4         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,7 @@ int	init_game(t_game *game, char **map);
 int	handle_close(t_game *game);
 int	handle_input(int keycode, t_game *game);
 int	validate_path(char **map, t_game *game);
+int	valid_char(char **map);
 
 
 #endif
