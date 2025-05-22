@@ -6,7 +6,7 @@
 /*   By: tiagovr4 <tiagovr4@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/23 14:37:33 by tiagovr4          #+#    #+#             */
-/*   Updated: 2025/05/05 20:26:55 by tiagovr4         ###   ########.fr       */
+/*   Updated: 2025/05/22 20:42:04 by tiagovr4         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static int	is_game_complete(t_game *game, int x, int y)
 {
 	if (game->map[y][x] == 'E' && game->collected == game->collectibles)
 	{
-		ft_printf("Congratulations! You completed the game in %d moves!\n", game->moves + 1);
+		ft_printf("Congratulations! You completed the game in %d moves and with %d resets!\n", game->moves + 1, game->reset_count);
 		handle_close(game);
 	}
 	return (0);
@@ -49,6 +49,7 @@ static void	reset_game(t_game *game)
 	int	i;
 	int	j;
 
+	game->reset_count++;
 	i = 0;
 	while (i < game->map_height)
 	{

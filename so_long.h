@@ -6,7 +6,7 @@
 /*   By: tiagovr4 <tiagovr4@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/09 18:20:10 by tiagovr4          #+#    #+#             */
-/*   Updated: 2025/05/22 12:54:05 by tiagovr4         ###   ########.fr       */
+/*   Updated: 2025/05/22 20:40:25 by tiagovr4         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ typedef struct	s_game
 	int		collectibles;		// collectibles counter
 	int		collected;			// collectibles collected
 	int		moves;				// move counter
+	int		reset_count;		// reset_counter
 	void	*img_player;		// player sprite
 	void	*img_wall;			// wall sprite
 	void	*img_floor;			// floor sprite
