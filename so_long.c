@@ -6,7 +6,7 @@
 /*   By: tiagovr4 <tiagovr4@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/09 18:58:51 by tiagovr4          #+#    #+#             */
-/*   Updated: 2025/05/22 12:01:33 by tiagovr4         ###   ########.fr       */
+/*   Updated: 2025/05/22 19:55:46 by tiagovr4         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,29 @@ static int	handle_error(char *msg, char **map, t_game *game, int free_mlx)
 		ft_putstr_fd(msg, 2);
 	if (map)
 		free_map(map);
-	if (free_mlx && game->mlx)
+	if (free_mlx && game && game->mlx)
 	{
+		if (game->img_player)
+			mlx_destroy_image(game->mlx, game->img_player);
+		if (game->img_wall)
+			mlx_destroy_image(game->mlx, game->img_wall);
+		if (game->img_floor)
+			mlx_destroy_image(game->mlx, game->img_floor);
+		if (game->img_collect)
+			mlx_destroy_image(game->mlx, game->img_collect);
+		if (game->img_exit)
+			mlx_destroy_image(game->mlx, game->img_exit);
+		if (game->win)
+			mlx_destroy_window(game->mlx, game->win);
 		mlx_destroy_display(game->mlx);
 		free(game->mlx);
+		if (game->original_map)
+			free_map(game->original_map);
 	}
 	return (1);
 }
 
+// This function check if it is the right file extension
 static int	is_ber(const char *filename)
 {
 	int	len;
