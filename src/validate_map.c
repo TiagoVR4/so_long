@@ -6,7 +6,7 @@
 /*   By: tiagovr4 <tiagovr4@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/15 11:57:02 by tiagovr4          #+#    #+#             */
-/*   Updated: 2025/05/05 20:26:59 by tiagovr4         ###   ########.fr       */
+/*   Updated: 2025/05/22 12:22:44 by tiagovr4         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,7 +98,7 @@ static int	required_elements(char **map)
 		}
 		i++;
 	}
-	return (player == 1 && exit >= 1 && collectibles >= 1);	// this return verifies if all elements meet the requirements
+	return (player == 1 && exit == 1 && collectibles >= 1);	// this return verifies if all elements meet the requirements
 }
 
 int	validate_map(char **map)
