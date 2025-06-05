@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   read_map.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tiagovr4 <tiagovr4@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tiagalex <tiagalex@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/10 17:50:57 by tiagovr4          #+#    #+#             */
-/*   Updated: 2025/05/22 12:06:43 by tiagovr4         ###   ########.fr       */
+/*   Updated: 2025/06/03 20:24:42 by tiagalex         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,12 @@ int	count_lines(const char *filename)
 	if (fd < 0)
 		return (-1);
 	lines = 0;
-	while ((line = get_next_line(fd)))	// Read each line from the file
+	line = get_next_line(fd);
+	while (line)
 	{
 		lines++;
 		free(line);
+		line = get_next_line(fd);
 	}
 	close(fd);
 	return (lines);
@@ -34,7 +36,7 @@ int	count_lines(const char *filename)
 void	free_map(char **map)
 {
 	int	i;
-	
+
 	i = 0;
 	if (!map)
 		return ;
@@ -70,7 +72,7 @@ static char	**init_map(const char *filename, int *lines, int *fd)
 void	gnl_clear_stash(int fd)
 {
 	char	*line;
-	
+
 	line = get_next_line(fd);
 	while (line)
 	{

@@ -3,27 +3,27 @@
 /*                                                        :::      ::::::::   */
 /*   validate_map.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tiagovr4 <tiagovr4@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tiagalex <tiagalex@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/15 11:57:02 by tiagovr4          #+#    #+#             */
-/*   Updated: 2025/05/22 12:57:26 by tiagovr4         ###   ########.fr       */
+/*   Updated: 2025/06/03 18:27:48 by tiagalex         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
 
-static int  is_rectangular(char **map)
+static int	is_rectangular(char **map)
 {
-	int i;
-	int len;
+	int	i;
+	int	len;
 
 	if (!map || !map[0])
 		return (0);
-	len = ft_strlen(map[0]); 			// Get the length of the first line
-	i = 1;								// Start from the second line
+	len = ft_strlen(map[0]);
+	i = 1;
 	while (map[i])
 	{
-		if ((int)ft_strlen(map[i]) != len)	 // Compare the length of each line
+		if ((int)ft_strlen(map[i]) != len)
 			return (0);
 		i++;
 	}
@@ -31,9 +31,9 @@ static int  is_rectangular(char **map)
 }
 
 // This function checks if the map has walls on all borders
-static int check_border_walls(char **map, int width, int height)
+static int	check_border_walls(char **map, int width, int height)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (i < width)
@@ -53,10 +53,10 @@ static int check_border_walls(char **map, int width, int height)
 }
 
 // This function checks if the map has valid borders and dimensions
-static int valid_borders(char **map)
+static int	valid_borders(char **map)
 {
-	int width;
-	int height;
+	int	width;
+	int	height;
 
 	height = 0;
 	while (map[height])
@@ -71,7 +71,6 @@ static int valid_borders(char **map)
 	return (1);
 }
 
-// This function checks if the map contains at least one player, one exit, and one collectible
 static int	required_elements(char **map)
 {
 	int	i;
@@ -87,7 +86,7 @@ static int	required_elements(char **map)
 	while (map[i])
 	{
 		j = -1;
-		while (map[i][++j])		// need to pre-increment j because of norminette -.-
+		while (map[i][++j])
 		{
 			if (map[i][j] == 'P')
 				player++;
@@ -98,7 +97,7 @@ static int	required_elements(char **map)
 		}
 		i++;
 	}
-	return (player == 1 && exit == 1 && collectibles >= 1);	// this return verifies if all elements meet the requirements
+	return (player == 1 && exit == 1 && collectibles >= 1);
 }
 
 int	validate_map(char **map)

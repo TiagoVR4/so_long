@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   handle_input.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tiagovr4 <tiagovr4@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tiagalex <tiagalex@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/23 14:37:33 by tiagovr4          #+#    #+#             */
-/*   Updated: 2025/05/22 20:42:04 by tiagovr4         ###   ########.fr       */
+/*   Updated: 2025/06/03 20:59:54 by tiagalex         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,8 @@ static int	is_game_complete(t_game *game, int x, int y)
 {
 	if (game->map[y][x] == 'E' && game->collected == game->collectibles)
 	{
-		ft_printf("Congratulations! You completed the game in %d moves and with %d resets!\n", game->moves + 1, game->reset_count);
+		ft_printf("GG! You finish the game with %d moves and %d resets!\n",
+			game->moves + 1, game->reset_count);
 		handle_close(game);
 	}
 	return (0);
@@ -26,18 +27,18 @@ static int	is_game_complete(t_game *game, int x, int y)
 // This function moves the player to the new position
 static int	move_player(t_game *game, int new_x, int new_y)
 {
-	if (game->map[new_y][new_x] == '1')		// Check if the next tile is a wall
+	if (game->map[new_y][new_x] == '1')
 		return (0);
-	is_game_complete(game, new_x, new_y);	// Check if the game is complete
+	is_game_complete(game, new_x, new_y);
 	if (game->map[new_y][new_x] == 'C')
 		game->collected++;
 	if (game->player_x == game->exit_x && game->player_y == game->exit_y)
-		game->map[game->player_y][game->player_x] = 'E';					// Set the exit position
+		game->map[game->player_y][game->player_x] = 'E';
 	else
-		game->map[game->player_y][game->player_x] = '1';					// Set the previous position to a wall
-	game->map[new_y][new_x] = 'P';						// Set the new position
-	game->player_x = new_x;								// Update the player's x position
-	game->player_y = new_y;								// Update the player's y position
+		game->map[game->player_y][game->player_x] = '0';
+	game->map[new_y][new_x] = 'P';
+	game->player_x = new_x;
+	game->player_y = new_y;
 	game->moves++;
 	ft_printf("Moves: %d\n", game->moves);
 	render_map(game);
@@ -75,20 +76,20 @@ static void	reset_game(t_game *game)
 // This function handles the input from the user
 int	handle_input(int keycode, t_game *game)
 {
-	if (keycode == 119 || keycode == 65362)								// 'w' or up arrow
+	if (keycode == 119 || keycode == 65362)
 		return (move_player(game, game->player_x, game->player_y - 1));
-	else if (keycode == 97 || keycode == 65361) 						// 'a' or left arrow
+	else if (keycode == 97 || keycode == 65361)
 		return (move_player(game, game->player_x - 1, game->player_y));
-	else if (keycode == 115 || keycode == 65364)						// 's' or down arrow
+	else if (keycode == 115 || keycode == 65364)
 		return (move_player(game, game->player_x, game->player_y + 1));
-	else if (keycode == 100 || keycode == 65363)						// 'd' or right arrow
+	else if (keycode == 100 || keycode == 65363)
 		return (move_player(game, game->player_x + 1, game->player_y));
-	else if (keycode == 114)											// 'r' to restart the game
+	else if (keycode == 114)
 	{
 		reset_game(game);
-		return(1);
+		return (1);
 	}
-	else if (keycode == 65307)											// 'esc'
+	else if (keycode == 65307)
 		handle_close(game);
 	return (0);
 }
